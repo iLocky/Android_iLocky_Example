@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:id="@+id/flStatus"
+        android:layout_alignBottom="@+id/ivKey"
+        android:background="@color/primary_text_disabled_material_dark"
+        android:orientation="horizontal"
+        android:layout_alignTop="@+id/ivKey" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/ivKey"
+        android:src="@drawable/key"
+        android:layout_gravity="center_vertical"
+        android:cropToPadding="false"
+        android:padding="5dp"
+        android:layout_toRightOf="@+id/flStatus" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@+id/ivKey"
+        android:layout_toLeftOf="@+id/llCount"
+        android:layout_centerVertical="true"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/tvKeyName"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Medium Text"
+            android:id="@+id/tviLockyName"
+            android:singleLine="true"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivStar"
+        android:src="@drawable/star"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/flStatus"
+        android:layout_alignParentRight="false"
+        android:id="@+id/llCount"
+        android:layout_alignTop="@+id/flStatus"
+        android:layout_toLeftOf="@+id/tvLongOpen">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="0"
+            android:id="@+id/tvTimes"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:singleLine="true" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFFFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="0"
+            android:id="@+id/tvTimesLimit"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/element_key_long_open"
+        android:id="@+id/tvLongOpen"
+        android:gravity="right|top"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+
+
+</RelativeLayout>
