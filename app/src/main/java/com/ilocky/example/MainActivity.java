@@ -35,20 +35,30 @@ public class MainActivity extends AppCompatActivity {
 
         startService(new Intent(getBaseContext(), ILockyService.class));
         doBindService();
-        /** CAUTION: any passport should be genetered in our global server.
-         ** this iLocky passport(key) generator is only for testing. it will be removed in near future.
-         ********************************************************************************************/
-        ILockyPassport passport = ILockyPassport.Builder()
-                .setActionType(ILockyPassport.ACTION_TYPE_LOW_SECURITY_OPEN)
-                .setDeviceId(ILockyPassport.getDeviceUuid())
-                .setILockyId("99fe71d1")
-                .setStartTime(System.currentTimeMillis())
-                .setEndTime(System.currentTimeMillis() + 36000000)
-                .setTimes(0)
-                .setRevokePast(true);
-        /********************************************************************************************/
-        String p=passport.toJSONString();
-        ILockyPassport.importPassport(p);
+        Log.d("iLocky",ILockyPassport.getDeviceUuid());
+        String passport="{\n" +
+                "  \"passport_id\": 2,\n" +
+                "  \"passport\": \"eyJpbG9ja3lfaWQiOiJjNGI5ZmQ0MyIsInV1aWQiOiI0MTQ2MDFmOS02ZGNiLTQ2NjAtOTg1OS1hNGQwZDYxOTU2ZGUiLCJzdGFydF90aW1lIjoiMjAxNS0xMS0wN1QwMDowMDowMCswODAwIiwic3RvcF90aW1lIjoiMjAxNS0xMS0yMFQwMDowMDowMCswODAwIiwidXNlX2xpbWl0IjowLCJyZmlkX2R1cmF0aW9uIjoxMDAwLCJhY3Rpb24iOiJvcGVuIGRvb3IiLCJyZXZva2VfbGVnYWN5Ijp0cnVlfQ==\"\n" +
+                "}";
+//        /** CAUTION: any passport should be genetered in our global server.
+//         ** this iLocky passport(key) generator is only for testing. it will be removed in near future.
+//         ********************************************************************************************/
+//        ILockyPassport passport = ILockyPassport.Builder()
+//                .setActionType(ILockyPassport.ACTION_TYPE_LOW_SECURITY_OPEN)
+//                .setDeviceId(ILockyPassport.getDeviceUuid())
+//                .setILockyId("99fe71d1")
+//                .setStartTime(System.currentTimeMillis())
+//                .setEndTime(System.currentTimeMillis() + 36000000)
+//                .setTimes(0)
+//                .setRevokePast(true);
+//        /********************************************************************************************/
+//        String p=passport.toJSONString();
+        try {
+            ILockyPassport.importPassport(passport);
+        } catch (ILockyPassport.ImportPassportException e) {
+
+        }
+
 
         mListView=(ListView)findViewById(R.id.listView);
         mAdapter =new ILockyKeyAdapter(this,ILockyPassport.getAlliLockyPassports());
