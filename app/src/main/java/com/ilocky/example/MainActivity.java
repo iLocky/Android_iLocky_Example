@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
                     myService.setNotCloseEnoughVibrateAndSound(true, R.raw.notclose);//set not close enough vibrate and sound (true/false for vibrate, not close engough of raw resource sound id)
                     myService.setILockyEventCallback(new ILocky.ILockyEventCallback() {
                         @Override
+                        public void onDeviceUnauthorized() {
+
+                        }
+
+                        @Override
                         public void onPassportUsed(final ILockyPassport iLockyPassport) {
                             runOnUiThread(new Runnable() {
                                 @Override
